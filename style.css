@@ -1,0 +1,253 @@
+/* style.css */
+
+/* Importa a fonte Poppins do Google Fonts, que é mais moderna e alinhada às referências */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+:root {
+  --dark-blue: #0D203C;     
+  --vibrant-blue: #007BFF;   
+  --accent-color:#0D203C;   
+  --bg-light-card: #FFFFFF;  
+  --text-light: #F0F4F8;   
+  --text-dark: #333333;      
+  --border-color: #DDE6ED;   
+}
+
+body {
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  background-color: var(--dark-blue); 
+  color: var(--text-light);
+  margin: 0;
+  padding-top: 80px; 
+}
+
+
+.navbar {
+  background-color: var(--dark-blue);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+  flex-wrap: wrap;
+}
+
+
+.icon-link,
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px; /* Define a área do "botão" */
+  border-radius: 8px; /* Bordas arredondadas */
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+}
+
+
+.icon-link i {
+  color: var(--text-light);
+  font-size: 1.4rem; 
+  transition: color 0.2s ease-in-out;
+}
+
+
+.text-link {
+  color: var(--text-light);
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: color 0.2s ease-in-out;
+}
+
+
+.icon-link:hover,
+.text-link:hover {
+  background-color: rgba(255, 255, 255, 0.1); 
+}
+
+
+.text-link:hover {
+  color: var(--accent-color);
+}
+.icon-link:hover i {
+  color: var(--accent-color);
+}
+
+
+
+.content {
+  max-width: 800px;
+  margin: 2rem auto 4rem auto;
+  padding: 2.5rem;
+  background-color: var(--bg-light-card);
+  color: var(--text-dark);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.content-title {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--dark-blue);
+}
+
+.content-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+  text-align: justify;
+}
+
+.content-list {
+  list-style-position: inside;
+  padding-left: 0;
+  font-size: 1rem;
+  color: var(--text-dark);
+  margin-bottom: 2rem;
+}
+
+.content-list li {
+  margin-bottom: 0.5rem;
+}
+
+
+.calculator-container {
+    max-width: 800px;
+    margin: 2rem auto 4rem auto;
+    padding: 2.5rem;
+    background-color: var(--bg-light-card);
+    color: var(--text-dark);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.input-group {
+    margin-bottom: 1.5rem;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark-blue);
+}
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field::placeholder { color: #999; }
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--vibrant-blue);
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+.result-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: #F4F7FC;
+    border: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.result-box p:first-child {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--dark-blue);
+}
+
+#media { color: var(--vibrant-blue); }
+
+#resultado {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+    min-height: 24px;
+}
+
+.status-success { color: #27AE60; }
+.status-warning { color: #F2994A; }
+.status-danger { color: #EB5757; }
+.status-error { color: #EB5757; }
+
+.instructions {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.instructions h2 { color: var(--dark-blue); }
+
+
+.content-link {
+  color: var(--vibrant-blue);
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.content-link:hover {
+  color: var(--dark-blue);
+}
+
+
+
+.formula-display {
+  background-color: #F4F7FC; 
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 1.5rem; 
+  font-weight: 600;
+  color: var(--dark-blue);
+  max-width: 80%;
+  overflow-x: auto; 
+}
+
+
+/* --- Responsividade --- */
+@media (max-width: 768px) {
+  body { padding-top: 80px; }
+  
+  .navbar-container {
+      gap: 0.5rem;
+      justify-content: center;
+      width: 100%;
+  }
+
+  .content, .calculator-container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  .content-title {
+    font-size: 1.5rem;
+  }
+}

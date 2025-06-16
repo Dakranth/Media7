@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="img/7.png" type="image/png">
+  <title>Calcular Média</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="index.html" class="icon-link" aria-label="Página Inicial">
+        <i class="fas fa-home"></i>
+      </a>
+      <a href="am.html" class="text-link">Aprovação por média (AM)</a>
+      <a href="ap.html" class="text-link">Aprovação (AP)</a>
+      <a href="calcular.html" class="text-link">Calcular Média</a>
+    </div>
+  </nav>
+
+  <main class="calculator-container">
+    <h1 class="content-title">Calcule sua média</h1>
+
+    <div class="input-grid">
+      <div class="input-group">
+        <label for="gq1" class="input-label">Nota GQ1:</label>
+        <input type="text" id="gq1" class="input-field" oninput="calcularMedia()" placeholder="Digite sua nota de 0 a 10">
+      </div>
+      <div class="input-group">
+        <label for="gq2" class="input-label">Nota GQ2:</label>
+        <input type="text" id="gq2" class="input-field" oninput="calcularMedia()" placeholder="Digite sua nota de 0 a 10">
+      </div>
+      <div class="result-box">
+        <p>Média Final: <span id="media">-</span></p>
+        <p id="resultado"></p>
+      </div>
+    </div>
+
+    <div class="instructions">
+      <h2 class="content-title" style="font-size: 1.5rem;">Passo a Passo do Cálculo</h2>
+      <ol class="content-text" style="list-style-type: decimal; padding-left: 20px;">
+        <li>Digite a nota do 1º Grau de Qualificação (GQ1).</li>
+        <li>Digite a nota do 2º Grau de Qualificação (GQ2).</li>
+        <li>A média é calculada automaticamente com a fórmula: (GQ1 * 2 + GQ2 * 3) / 5.</li>
+        <li>Se a média for <strong>maior ou igual a 7</strong>, você está <strong class="status-success">Aprovado por Média (AM)</strong>.</li>
+        <li>Se a média for <strong>entre 3 e 6.9</strong>, você precisará fazer o Exame Final.</li>
+        <li>Se a média for <strong>menor que 3</strong>, você está <strong class="status-danger">Reprovado por Média (RM)</strong>.</li>
+      </ol>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
