@@ -1,15 +1,24 @@
-/* style.css */
+/* style.css (VERSÃO FINAL COM TODAS AS CORREÇÕES E FORMATAÇÃO) */
 
-/* Importa a fonte Poppins do Google Fonts, que é mais moderna e alinhada às referências */
+/* CORREÇÃO 1: Impede que elementos como os inputs "vazem" de seus containers.
+  Isso resolve o problema na página "Calcular Média".
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Importa a fonte Poppins do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-
+/* Suas definições de cores personalizadas */
 :root {
   --dark-blue: #0D203C;     
   --vibrant-blue: #007BFF;   
-  --accent-color:#0D203C;   
+  --accent-color: #0D203C;   
   --bg-light-card: #FFFFFF;  
-  --text-light: #F0F4F8;   
+  --text-light: #F0F4F8;     
   --text-dark: #333333;      
   --border-color: #DDE6ED;   
 }
@@ -22,6 +31,9 @@ body {
   padding-top: 80px; 
 }
 
+/* ================================================= */
+/* --- BARRA DE NAVEGAÇÃO - VERSÃO DESKTOP --- */
+/* ================================================= */
 
 .navbar {
   background-color: var(--dark-blue);
@@ -41,28 +53,25 @@ body {
   display: flex;
   align-items: center;
   gap: 0.5rem; 
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Layout correto para o desktop */
 }
-
 
 .icon-link,
 .text-link {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 16px; /* Define a área do "botão" */
-  border-radius: 8px; /* Bordas arredondadas */
+  padding: 8px 16px;
+  border-radius: 8px;
   text-decoration: none;
   transition: background-color 0.2s ease-in-out;
 }
-
 
 .icon-link i {
   color: var(--text-light);
   font-size: 1.4rem; 
   transition: color 0.2s ease-in-out;
 }
-
 
 .text-link {
   color: var(--text-light);
@@ -73,23 +82,25 @@ body {
   transition: color 0.2s ease-in-out;
 }
 
-
 .icon-link:hover,
 .text-link:hover {
   background-color: rgba(255, 255, 255, 0.1); 
 }
 
-
 .text-link:hover {
   color: var(--accent-color);
 }
+
 .icon-link:hover i {
   color: var(--accent-color);
 }
 
+/* ================================================= */
+/* --- ESTILOS DE CONTEÚDO E CALCULADORA --- */
+/* ================================================= */
 
-
-.content {
+.content, 
+.calculator-container {
   max-width: 800px;
   margin: 2rem auto 4rem auto;
   padding: 2.5rem;
@@ -128,67 +139,58 @@ body {
   margin-bottom: 0.5rem;
 }
 
-
-.calculator-container {
-    max-width: 800px;
-    margin: 2rem auto 4rem auto;
-    padding: 2.5rem;
-    background-color: var(--bg-light-card);
-    color: var(--text-dark);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
 .input-group {
-    margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .input-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: var(--dark-blue);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--dark-blue);
 }
 
 .input-field {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.input-field::placeholder { color: #999; }
+.input-field::placeholder {
+  color: #999;
+}
 
 .input-field:focus {
-    outline: none;
-    border-color: var(--vibrant-blue);
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+  outline: none;
+  border-color: var(--vibrant-blue);
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
 }
 
 .result-box {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    border-radius: 8px;
-    background-color: #F4F7FC;
-    border: 1px solid var(--border-color);
-    text-align: center;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background-color: #F4F7FC;
+  border: 1px solid var(--border-color);
+  text-align: center;
 }
 
 .result-box p:first-child {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--dark-blue);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dark-blue);
 }
 
 #media { color: var(--vibrant-blue); }
 
 #resultado {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-top: 0.5rem;
-    min-height: 24px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  min-height: 24px;
 }
 
 .status-success { color: #27AE60; }
@@ -197,13 +199,12 @@ body {
 .status-error { color: #EB5757; }
 
 .instructions {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--border-color);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
 }
 
 .instructions h2 { color: var(--dark-blue); }
-
 
 .content-link {
   color: var(--vibrant-blue);
@@ -212,42 +213,114 @@ body {
   transition: color 0.3s ease;
 }
 
-.content-link:hover {
-  color: var(--dark-blue);
-}
-
-
+.content-link:hover { color: var(--dark-blue); }
 
 .formula-display {
-  background-color: #F4F7FC; 
+  background-color: #F4F7FC;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   padding: 1.5rem;
   margin: 2rem auto;
   text-align: center;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--dark-blue);
   max-width: 80%;
-  overflow-x: auto; 
+  overflow-x: auto;
 }
 
+/* =================================================================== */
+/* --- ESTILOS PARA MOBILE E MENU HAMBÚRGUER --- */
+/* =================================================================== */
 
-/* --- Responsividade --- */
+/* Esconde o botão hambúrguer no desktop por padrão */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  display: block;
+  position: relative;
+  width: 2em;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+.hamburger::before { top: -8px; }
+.hamburger::after { top: 8px; }
+
+/* Animação do botão para virar um "X" */
+.nav-open .hamburger { transform: rotate(45deg); }
+.nav-open .hamburger::before { top: 0; transform: rotate(90deg); }
+.nav-open .hamburger::after { top: 0; opacity: 0; }
+
+/* Bloco único e correto de responsividade */
 @media (max-width: 768px) {
-  body { padding-top: 80px; }
   
-  .navbar-container {
-      gap: 0.5rem;
-      justify-content: center;
-      width: 100%;
-  }
-
+  /* Ajustes gerais para telas pequenas */
   .content, .calculator-container {
     padding: 1.5rem;
     margin: 1rem;
   }
   .content-title {
     font-size: 1.5rem;
+  }
+  
+  /* Altera o layout do container da navbar APENAS no mobile */
+  .navbar-container {
+    justify-content: space-between;
+    flex-wrap: nowrap; 
+    width: 100%;
+    gap: 0; /* CORREÇÃO 2: Impede que o botão seja "cortado" */
+  }
+  
+  /* Mostra o botão hambúrguer APENAS no mobile */
+  .nav-toggle {
+    display: block; 
+    order: 2;
+  }
+
+  /* Esconde os links por padrão APENAS no mobile */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--dark-blue);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Mostra o menu quando estiver aberto APENAS no mobile */
+  .nav-open .nav-links {
+    display: flex;
+  }
+  
+  /* Estiliza os links dentro do menu mobile */
+  .nav-links .text-link {
+    width: 100%;
+    text-align: left;
+    padding: 1rem 2rem;
+    justify-content: flex-start;
   }
 }
